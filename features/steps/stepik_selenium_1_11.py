@@ -10,15 +10,12 @@ driver.get("http://the-internet.herokuapp.com/")
 basic_auth = driver.find_element(By.XPATH,"//li/a[text() = 'Basic Auth']")
 basic_auth.click()
 time.sleep(5)
-alert = Alert(driver)
-alert.send_keys('admin')
-alert.send_keys(Keys.TAB)
-alert.send_keys('admin')
-alert.accept()
+driver.get('http://admin:admin@the-internet.herokuapp.com/basic_auth')
 # Напишем текст ответа в найденное поле
 
 time.sleep(5)
 
 
 # После выполнения всех действий мы должны не забыть закрыть окно браузера
+driver.close()
 driver.quit()
